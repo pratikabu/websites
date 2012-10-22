@@ -1,0 +1,8 @@
+.tableClass {
+	border: 1px SOLID #2094F0;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	background: WHITESMOKE;
+	width: 400px;
+	margin-bottom: 20px;
+}
