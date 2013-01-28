@@ -20,10 +20,78 @@
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 
+			function getParameterByName(name) {
+				name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+				var regexS = "[\\?&]" + name + "=([^&#]*)";
+				var regex = new RegExp(regexS);
+				var results = regex.exec(window.location.search);
+				if(results == null)
+					return "";
+				else
+					return decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+			
+			/**
+			lVer = latest version, uVer = user version
+			This method will return -1, 0, 1 respectively
+			*/
+			function compareVersion(lVer, uVer) {
+				var lv = lVer.split(".");
+				var uv = uVer.split(".");
+				var length = lv.length > uv.length ? uv.length : lv.length;
+				
+				for(var i = 0; i < length; i++) {
+					if(lv[i] > uv[i]) {
+						return -1;
+					} else if(lv[i] < uv[i]) {
+						return 1;
+					}
+				}
+				
+				// till here everything is equal, checking for any extra bit
+				if(lv.length > uv.length) {
+					return -1;
+				} else if(lv.length < uv.length) {
+					return 1;
+				}
+				
+				// the versions are exactly same
+				return 0;
+			}
+			
+			function onLoadContent() {
+				var latestVersion;
+				var platform = getParameterByName("p");
+				if ("" == platform) {
+					platform = "Desktop";
+				}
+				if ("Desktop" == platform) {
+					latestVersion = "3.7";
+				} else if ("Mobile" == platform) {
+					latestVersion = "1.0";
+				}
+				document.getElementById("latestLabelId").innerHTML = "Latest " + platform + " Version is " + latestVersion;
+				
+				var userVersion = getParameterByName("v");
+				if("" != userVersion) {
+					var msg;
+					var compareRes = compareVersion(latestVersion, userVersion);
+					if (0 > compareRes) {// kindly upgrade
+						msg = "You are using an older version of this add-on. Kindly upgrade, go to download section and download the latest version.";
+					} else if (0 == compareRes) {// u've latest
+						msg = "You rocks! You have the latest version installed.";
+					} else {// that's not possible. Please update the latest version on this page Pratik.. :P
+						msg = "Oops.. Either you are playing with url parameters or I was too lazy to update the latest version here.";
+					}
+					
+					document.getElementById("descriptionId").innerHTML = msg;
+				}
+			}
+
 		</script>
 	</head>
 	
-	<body class="zeroMargin">
+	<body class="zeroMargin" onload="onLoadContent()">
 		<div id="headerDiv" align="center" class="headerSlot">
 			<table width="970" border="0">
 				<tr>
@@ -48,8 +116,9 @@
 		</div>
 		<div id="mainDiv" align="center" class="mainContent" style="width: 100%; padding-top: 10px;">
 			<div align="center" style="width: 970px;">
-				<div align="left" class="topic"><h2>Boo! Not yet finished.</h2></div>
-				<p align="justify" class="documentContent">I've not yet finished wokring on this page. I'll complete this page by end of January, 2012. Kindly revisit.. <b>Happy New Year</b> to you.. :)</p>
+				<div align="left" class="topic"><h2 id="latestLabelId"></h2></div>
+				<p align="justify" class="documentContent" id="descriptionId"></p>
+				<p align="justify" class="documentContent"><a href="">Download Scroll To Top</a> for your favorite desktop and mobile browser.</p>
 			</div>
 		</div>
 		<div id="footerDiv" align="center" class="footerSlot">
