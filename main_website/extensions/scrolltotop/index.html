@@ -52,6 +52,12 @@
 		</div>
 		<div id="mainDiv" align="center" class="mainContent" style="width: 100%; padding-top: 10px;">
 			<div align="left" style="width: 970px;">
+				<div align="center" style="width: 100%;">
+					<iframe src="//www.facebook.com/plugins/follow.php?href=http%3A%2F%2Fwww.facebook.com%2Fscrolltotop&amp;layout=button_count&amp;show_faces=false&amp;colorscheme=light&amp;font&amp;width=90&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
+					<a href="http://twitter.com/scrolltotop" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @scrolltotop</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+		
 				<div align="left" class="topic"><h2>Brief</h2></div>
 				<p align="justify" class="documentContent">Everyday scrolling on long pages can be a tiring experience specially on those sites which provides infinite scrolling (like <a href="http://facebook.com">facebook</a>, <a href="http://twitter.com">twitter</a>, <a href="http://plus.google.com">Google+</a>, etc). You will keep scrolling using your mouse to see more and more updates and then when you want to go up to the top of the page, you might move your hand from your mouse to keyboard to search for Home key or you will drag the scroll bar to the top.</p>
 				
@@ -93,7 +99,7 @@
 				</div>
 				<p align="center" class="documentContent">Latest Version: <b>1.0.1</b></p>
 				
-				<p align="justify" class="documentContent">Report an Issue / Request a Feature using <a href="https://github.com/pratikabu/scrolltotop/issues">this link</a>. In case you are reporting an issue, kindly mention the browser name. Many thanks.</p>
+				<p align="center" class="documentContent">Report an Issue / Request a Feature using <a href="https://github.com/pratikabu/scrolltotop/issues">this link</a>. In case you are reporting an issue, kindly mention the browser name.<br/>Developers you can <a href="https://github.com/pratikabu/scrolltotop/fork">fork ScrollToTop</a> on GitHub.</p>
 			</div>
 		</div>
 		<div id="footerDiv" align="center" class="footerSlot">
@@ -106,7 +112,8 @@
 							<a href="http://www.linkedin.com/in/pratikabu" title="Join my professional network on LinkedIn"><img src="../../res/linkedin_16.png" width="16" height="16"></a>
 							<a href="mailto:pratikabu@gmail.com" title="Send me a mail"><img src="../../res/gmail.png" width="16" height="16"></a>
 						</div></td>
-						<td width="42%"><div align="right"><span class="footerText"><a href="../../index.html" title="Return to Home">Pratik Soni</a> &copy; 2012</span></div></td>
+						<td width="42%"><div align="right"><span class="footerText"><a href="../../index.html" title="Return to Home">Pratik Soni</a> &copy; <span id="idyear"></span></span></div></td>
+						<script>document.getElementById("idyear").innerHTML = new Date().getFullYear();</script>
 				</tr>
 			</table>
 			<a href="http://sourceforge.net" title="Powered by SourceForge.net"><img src="../../res/sourceforgesmall.png" width="106" height="18"></a>
