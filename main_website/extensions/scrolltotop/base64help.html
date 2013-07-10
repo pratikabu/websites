@@ -50,6 +50,12 @@
 		</div>
 		<div id="mainDiv" align="center" class="mainContent" style="width: 100%; padding-top: 10px;">
 			<div align="center" style="width: 970px;">
+				<div align="center" style="width: 100%;">
+					<iframe src="//www.facebook.com/plugins/follow.php?href=http%3A%2F%2Fwww.facebook.com%2Fscrolltotop&amp;layout=button_count&amp;show_faces=false&amp;colorscheme=light&amp;font&amp;width=90&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
+					<a href="http://twitter.com/scrolltotop" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @scrolltotop</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+		
 				<p align="justify" class="documentContent">Steps to upload your own image.</p>
 				<p align="justify" class="documentContent stepHeader">Step 1:</p>
 				<p align="justify" class="documentContent">Open <a target="_blank" href="http://www.base64-image.de/step-1.php">www.base64-image.de</a> and go to Step 2.</p>
@@ -78,7 +84,8 @@
 							<a href="http://www.linkedin.com/in/pratikabu" title="Join my professional network on LinkedIn"><img src="../../res/linkedin_16.png" width="16" height="16"></a>
 							<a href="mailto:pratikabu@gmail.com" title="Send me a mail"><img src="../../res/gmail.png" width="16" height="16"></a>
 						</div></td>
-						<td width="42%"><div align="right"><span class="footerText"><a href="../../index.html" title="Return to Home">Pratik Soni</a> &copy; 2012</span></div></td>
+						<td width="42%"><div align="right"><span class="footerText"><a href="../../index.html" title="Return to Home">Pratik Soni</a> &copy; <span id="idyear"></span></span></div></td>
+						<script>document.getElementById("idyear").innerHTML = new Date().getFullYear();</script>
 				</tr>
 			</table>
 			<a href="http://sourceforge.net" title="Powered by SourceForge.net"><img src="../../res/sourceforgesmall.png" width="106" height="18"></a>
