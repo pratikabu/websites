@@ -44,3 +44,18 @@ a#donateButton:active {
 .line {
 	border-bottom: 1px solid #EBEBEB;
 }
+
+.releaseDiv {
+	padding: 5px;
+	boder: 1px SOLID WHITE;
+	border-radius: 3px;
+	margin-bottom: 5px;
+}
+
+.releaseDiv:hover {
+	background: whitesmoke;
+}
+
+.higlightedReleaseDiv {
+	background: #FFF479;
+}

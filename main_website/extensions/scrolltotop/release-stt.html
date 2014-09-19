@@ -3,6 +3,9 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
 		<title>Release Notes - Scroll To Top</title>
 		<link rel="stylesheet" href="../../res/stylesheet.css">
 		<link rel="stylesheet" href="res/stt.css">
@@ -18,11 +21,34 @@
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
+			
+			function getParameterByName(name) {
+				name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+				var regexS = "[\\?&]" + name + "=([^&#]*)";
+				var regex = new RegExp(regexS);
+				var results = regex.exec(window.location.search);
+				if(results == null)
+					return "";
+				else
+					return decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+			
+			function onLoadContent() {
+				var version = getParameterByName("v");
+				if(!version) {
+					version = "4.4";
+				}
+				
+				var d = document.getElementById("v" + version);
+				if(d) {
+					d.className = d.className + " higlightedReleaseDiv";
+				}
+			}
 
 		</script>
 	</head>
 	
-	<body class="zeroMargin" style="padding: 10px;">
+	<body class="zeroMargin" style="padding: 10px;" onload="onLoadContent()">
 		<div id="headerDiv" align="center" class="headerSlot">
 			<div align="center" class="contentHeader" style="letter-spacing: -1.5px; font-weight: bold; font-size: 18px;">Latest Version Info</div>
 		</div>
@@ -33,125 +59,155 @@
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 				</div>
 				
-				<div align="left" class="topic line"><h2>Changes in Version 4.4:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>Minor bug fixes.</li>
-					<li>Minor Options page UI changes.</li>
-				</ul>
+				<div id="v4.5" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 4.5:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Icon will not be printed, when you print the page.</li>
+						<li>Firefox private browsing enabled.</li>
+						<li>New fresh icons added.</li>
+						<li>Options Page UI overhaul.</li>
+						<li>Many more minor and stability fixes.</li>
+					</ul>
+				</div>
+				
+				<div id="v4.4" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 4.4:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Minor bug fixes.</li>
+						<li>Minor Options page UI changes.</li>
+					</ul>
+				</div>
 		
-				<div align="left" class="topic line"><h2>Changes in Version 4.3:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>Control the transparency of the icon.</li>
-					<li>Enjoy all icons in Black &amp; White. (Not available on Firefox &amp; Opera)</li>
-					<li>Pollable scroll to downward button when you are in-between of a page.</li>
-					<li>Export &amp; Import your settings from one browser to other.</li>
-					<li>Complete restructuring of the code, moved to ANT based building system.</li>
-				</ul>
+				<div id="v4.3" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 4.3:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Control the transparency of the icon.</li>
+						<li>Enjoy all icons in Black &amp; White. (Not available on Firefox &amp; Opera)</li>
+						<li>Pollable scroll to downward button when you are in-between of a page.</li>
+						<li>Export &amp; Import your settings from one browser to other.</li>
+						<li>Complete restructuring of the code, moved to ANT based building system.</li>
+					</ul>
+					<p align="justify" class="documentContent">See <a href="http://pratikabu.blogspot.in/2013/07/scroll-to-top-version-43-released.html">blog post</a> for discussions.</p>
+				</div>
 				
-				<p align="justify" class="documentContent">See <a href="http://pratikabu.blogspot.in/2013/07/scroll-to-top-version-43-released.html">blog post</a> for discussions.</p>
-		
-				<div align="left" class="topic line"><h2>Changes in Version 4.2:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>Brand new Smart Direction Mode, <a target="_blank" href="http://pratikabu.blogspot.com/2013/04/stt-smart-direction-mode.html" title="Learn more about Smart Direction Mode">learn more</a>.</li>
-					<li>Auto Hide mode for taking screen shots and printing.</li>
-					<li>Change horizontal/vertical offset of the addon.</li>
-					<li>Now you can give a list of website on which you don't want this addon to load.</li>
-					<li>Memory optimization.</li>
-					<li>Now see less cluttered Options UI with a switch to show Advanced Options.</li>
-					<li>Rewritten whole code for best performance.</li>
-					<li>Visibility setting has been reset to Auto Hide.</li>
-				</ul>
+				<div id="v4.2" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 4.2:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Brand new Smart Direction Mode, <a target="_blank" href="http://pratikabu.blogspot.com/2013/04/stt-smart-direction-mode.html" title="Learn more about Smart Direction Mode">learn more</a>.</li>
+						<li>Auto Hide mode for taking screen shots and printing.</li>
+						<li>Change horizontal/vertical offset of the addon.</li>
+						<li>Now you can give a list of website on which you don't want this addon to load.</li>
+						<li>Memory optimization.</li>
+						<li>Now see less cluttered Options UI with a switch to show Advanced Options.</li>
+						<li>Rewritten whole code for best performance.</li>
+						<li>Visibility setting has been reset to Auto Hide.</li>
+					</ul>
+					<p align="justify" class="documentContent">See <a href="http://pratikabu.blogspot.com/2013/04/scroll-to-top-version-42-released.html">blog post</a> for discussions.</p>
+				</div>
 				
-				<p align="justify" class="documentContent">See <a href="http://pratikabu.blogspot.com/2013/04/scroll-to-top-version-42-released.html">blog post</a> for discussions.</p>
+				<div id="v4.0" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 4.0:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Flip between Scroll Up and Scroll Down based on the current location.</li>
+						<li>New Icon Gallery for Dual Arrow.</li>
+						<li>Arrange Dual Icons in Horizontal or Vertical arrangement.
+						<li>New icons for Single arrow.</li>
+						<li>Pause anywhere by clicking on the same icon when scrolling.</li>
+						<li>Open Settings page in a convenient way.</li>
+						<li>Refactored the code to give faster performance.</li>
+					</ul>
+					<p align="justify" class="documentContent">See <a href="http://pratikabu.blogspot.com/2013/02/scroll-to-top-version-40-released.html">blog post</a> for discussions.</p>
+				</div>
 				
-				<div align="left" class="topic line"><h2>Changes in Version 4.0:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>Flip between Scroll Up and Scroll Down based on the current location.</li>
-					<li>New Icon Gallery for Dual Arrow.</li>
-					<li>Arrange Dual Icons in Horizontal or Vertical arrangement.
-					<li>New icons for Single arrow.</li>
-					<li>Pause anywhere by clicking on the same icon when scrolling.</li>
-					<li>Open Settings page in a convenient way.</li>
-					<li>Refactored the code to give faster performance.</li>
-				</ul>
+				<div id="v3.7" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 3.7:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Dual Arrow Support</li>
+						<li>New and refreshing icons in the library</li>
+						<li>Middle position added for locations</li>
+						<li>Revamped interface of Options page</li>
+						<li>More options in the Options page</li>
+						<li>Multiple stability fixes</li>
+						<li>Bug fixes</li>
+						<li>Code refactoring</li>
+					</ul>
+					<p align="justify" class="documentContent">See <a href="http://pratikabu.blogspot.in/2013/01/scroll-to-top-version-37-released.html">blog post</a> for discussions.</p>
+				</div>
 				
-				<p align="justify" class="documentContent">See <a href="http://pratikabu.blogspot.com/2013/02/scroll-to-top-version-40-released.html">blog post</a> for discussions.</p>
+				<div id="v3.6" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 3.6:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>added icon gallery to choose other icons</li>
+						<li>now user can upload there own icon to scroll</li>
+						<li>removed support for internal frames and iframes</li>
+						<li>fix for a severe bug, which comes into play when user is typing in any html editor</li>
+						<li>new options page for Safari browser</li>
+						<li>lots of other stability fixes</li>
+						<li>code refactoring</li>
+					</ul>
+					<p align="justify" class="documentContent">See <a href="http://pratikabu.blogspot.com/2012/11/scroll-to-top-version-36-released.html">blog post</a> for discussions.</p>
+				</div>
 				
-				<div align="left" class="topic line"><h2>Changes in Version 3.7:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>Dual Arrow Support</li>
-					<li>New and refreshing icons in the library</li>
-					<li>Middle position added for locations</li>
-					<li>Revamped interface of Options page</li>
-					<li>More options in the Options page</li>
-					<li>Multiple stability fixes</li>
-					<li>Bug fixes</li>
-					<li>Code refactoring</li>
-				</ul>
-				
-				<p align="justify" class="documentContent">See <a href="http://pratikabu.blogspot.in/2013/01/scroll-to-top-version-37-released.html">blog post</a> for discussions.</p>
-				
-				<div align="left" class="topic line"><h2>Changes in Version 3.6:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>added icon gallery to choose other icons</li>
-					<li>now user can upload there own icon to scroll</li>
-					<li>removed support for internal frames and iframes</li>
-					<li>fix for a severe bug, which comes into play when user is typing in any html editor</li>
-					<li>new options page for Safari browser</li>
-					<li>lots of other stability fixes</li>
-					<li>code refactoring</li>
-				</ul>
-				
-				<p align="justify" class="documentContent">See <a href="http://pratikabu.blogspot.com/2012/11/scroll-to-top-version-36-released.html">blog post</a> for discussions.</p>
-				
-				<div align="left" class="topic line"><h2>Changes in Version 3.5:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>multiple stability changes for iFrames</li>
-					<li>new intelligent logic for the icon</li>
-					<li>totally new options page for settings</li>
-					<li>customizable scrolling speed, visibility, and control options</li>
-					<li>refactoring and other fixes</li>
-				</ul>
+				<div id="v3.5" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 3.5:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>multiple stability changes for iFrames</li>
+						<li>new intelligent logic for the icon</li>
+						<li>totally new options page for settings</li>
+						<li>customizable scrolling speed, visibility, and control options</li>
+						<li>refactoring and other fixes</li>
+					</ul>
+				</div>
 
-				<div align="left" class="topic line"><h2>Changes in Version 3.0:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>Reworked on the UI, now only single icon will appear until user moves his/her mouse over it.</li>
-					<li>Added Pager to the controls, to navigate in the page.</li>
-					<li>Special handling of iFrames and frames.</li>
-					<li>Code refactoring done, now browser specific methods are in one file</li>
-					<li>Various stability fixes</li>
-				</ul>
+				<div id="v3.0" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 3.0:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Reworked on the UI, now only single icon will appear until user moves his/her mouse over it.</li>
+						<li>Added Pager to the controls, to navigate in the page.</li>
+						<li>Special handling of iFrames and frames.</li>
+						<li>Code refactoring done, now browser specific methods are in one file</li>
+						<li>Various stability fixes</li>
+					</ul>
+				</div>
 
-				<div align="left" class="topic line"><h2>Changes in Version 2.5:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>Added pager for page up and page down. It is in beta mode for now.</li>
-					<li>Refactored the application code</li>
-					<li>One UI fix</li>
-				</ul>
+				<div id="v2.5" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 2.5:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Added pager for page up and page down. It is in beta mode for now.</li>
+						<li>Refactored the application code</li>
+						<li>One UI fix</li>
+					</ul>
+				</div>
 
-				<div align="left" class="topic line"><h2>Changes in Version 2.1:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>Critical bug fixes</li>
-					<li>Various stability fixes</li>
-				</ul>
+				<div id="v2.1" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 2.1:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Critical bug fixes</li>
+						<li>Various stability fixes</li>
+					</ul>
+				</div>
 
-				<div align="left" class="topic line"><h2>Changes in Version 2.0:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>Added scroll to down button.</li>
-					<li>Added clear button so that user can remove this widget for a while.</li>
-					<li>Pause while scrolling.</li>
-					<li>New animations added.</li>
-					<li>Other bug fixes.</li>
-				</ul>
+				<div id="v2.0" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 2.0:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Added scroll to down button.</li>
+						<li>Added clear button so that user can remove this widget for a while.</li>
+						<li>Pause while scrolling.</li>
+						<li>New animations added.</li>
+						<li>Other bug fixes.</li>
+					</ul>
+				</div>
 
-				<div align="left" class="topic line"><h2>Changes in Version 1.1:</h2></div>
-				<ul align="justify" class="documentContent">
-					<li>Upgraded the scrolling logic to use jQuery, which is more robust.</li>
-					<li>Now the default location of the icon will be at Bottom-Right corner.</li>
-					<li>Added Preferences so that user can choose where the icon should appear.</li>
-					<li>Added preference to choose the icon size.</li>
-					<li>Other bug fixes.</li>
-				</ul>
+				<div id="v1.1" class="releaseDiv">
+					<div align="left" class="topic line"><h2>Changes in Version 1.1:</h2></div>
+					<ul align="justify" class="documentContent">
+						<li>Upgraded the scrolling logic to use jQuery, which is more robust.</li>
+						<li>Now the default location of the icon will be at Bottom-Right corner.</li>
+						<li>Added Preferences so that user can choose where the icon should appear.</li>
+						<li>Added preference to choose the icon size.</li>
+						<li>Other bug fixes.</li>
+					</ul>
+				</div>
 				
 				<p align="justify" class="documentContent">Report an Issue / Request a Feature using <a href="https://github.com/pratikabu/scrolltotop/issues">this link</a>. In case you are reporting an issue, kindly mention the browser name. Many thanks.</p>
 			</div>
