@@ -49,7 +49,7 @@ a#donateButton:active {
 	padding: 5px;
 	boder: 1px SOLID WHITE;
 	border-radius: 3px;
-	margin-bottom: 5px;
+	margin-top: 5px;
 }
 
 .releaseDiv:hover {

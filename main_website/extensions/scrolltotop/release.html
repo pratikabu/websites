@@ -22,34 +22,11 @@
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
-			
-			function getParameterByName(name) {
-				name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-				var regexS = "[\\?&]" + name + "=([^&#]*)";
-				var regex = new RegExp(regexS);
-				var results = regex.exec(window.location.search);
-				if(results == null)
-					return "";
-				else
-					return decodeURIComponent(results[1].replace(/\+/g, " "));
-			}
-			
-			function onLoadContent() {
-				var version = getParameterByName("v");
-				if(!version) {
-					version = "4.4";
-				}
-				
-				var d = document.getElementById("v" + version);
-				if(d) {
-					d.className = d.className + " higlightedReleaseDiv";
-				}
-			}
 
 		</script>
 	</head>
 	
-	<body class="zeroMargin" onload="onLoadContent()">
+	<body class="zeroMargin">
 		<div id="headerDiv" align="center" class="headerSlot">
 			<table width="970" border="0">
 				<tr>
