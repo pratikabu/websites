@@ -6,10 +6,11 @@
 	$donateUrl = $paypalLink;
 	$paypalName = "PayPal";
 	$mozillaName = "Mozilla";
-	$firefoxFound = isset($_SERVER['HTTP_USER_AGENT']) && strlen(strstr($_SERVER['HTTP_USER_AGENT'],"Firefox"));
-	if($firefoxFound > 0) {
+	//$firefoxFound = isset($_SERVER['HTTP_USER_AGENT']) && strlen(strstr($_SERVER['HTTP_USER_AGENT'],"Firefox"));
+	$firefoxFound = True;
+	//if($firefoxFound > 0) {
 		$donateUrl = $mozillaLink;
-	}
+	//}
 	
 	function printAltUrl() {
 		global $firefoxFound, $paypalLink, $mozillaLink;
@@ -64,16 +65,20 @@
 	
 	<body class="zeroMargin">
 		<div id="mainDiv" align="center" class="mainContent" style="width: 100%; padding-top: 10px; margin-top: 20px;">
-			<div align="center" class="tableClass documentContent" style="width: 350px;">
+			<div align="center" class="tableClass documentContent" style="width: 800px;">
 				<div style="margin-bottom: 15px; margin-top: 15px;">
 					Thank you.<br/>
 					Redirecting to <a href="<?php print_r($donateUrl); ?>">donation page</a> using <?php printDonationName(); ?>.
 				</div>
 				<div style="margin-bottom: 15px;"><img src="res/loader.gif" /></div>
+				<div style="margin-bottom: 15px; font-size: 12px;">
+					Once redirected to <a href="<?php print_r($donateUrl); ?>">donate page</a>, click on Contribute link to donate. See screenshot below.
+				</div>
+				<div style="margin-bottom: 15px;"><img src="res/firefox_donate.png" /></div>
 				<div style="margin-bottom: 15px; margin-top: 15px; font-size: 10px;">
 					<a href="<?php print_r($donateUrl); ?>">Click here</a> if it does not redirects within 5 seconds.
 				</div>
-				<div style="margin-bottom: 15px; margin-top: 15px;">
+				<div style="margin-bottom: 15px; margin-top: 15px; display: none;">
 					Alternatively donate using <a href="<?php printAltUrl(); ?>"><?php printAltName(); ?></a>.
 				</div>
 			</div>
