@@ -9,7 +9,8 @@
 	//$firefoxFound = isset($_SERVER['HTTP_USER_AGENT']) && strlen(strstr($_SERVER['HTTP_USER_AGENT'],"Firefox"));
 	$firefoxFound = True;
 	//if($firefoxFound > 0) {
-		$donateUrl = $mozillaLink;
+		// $donateUrl = $mozillaLink;
+		$donateUrl = "https://www.paypal.me/paypratik/10";
 	//}
 	
 	function printAltUrl() {
@@ -42,7 +43,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-		<meta http-equiv="refresh" content="5;URL='<?php print_r($donateUrl); ?>'">
+		<meta http-equiv="refresh" content="0;URL='<?php print_r($donateUrl); ?>'">
 		<title>Thank You - Pratik Soni</title>
 		<link rel="shortcut icon" href="../../res/favicon.ico">
 		<link rel="stylesheet" href="../../res/stylesheet.css">
@@ -68,18 +69,11 @@
 			<div align="center" class="tableClass documentContent" style="width: 800px;">
 				<div style="margin-bottom: 15px; margin-top: 15px;">
 					Thank you.<br/>
-					Redirecting to <a href="<?php print_r($donateUrl); ?>">donation page</a> using <?php printDonationName(); ?>.
+					Redirecting to <a href="<?php print_r($donateUrl); ?>">donation page</a>.
 				</div>
 				<div style="margin-bottom: 15px;"><img src="res/loader.gif" /></div>
-				<div style="margin-bottom: 15px; font-size: 12px;">
-					Once redirected to <a href="<?php print_r($donateUrl); ?>">donate page</a>, click on Contribute link to donate. See screenshot below.
-				</div>
-				<div style="margin-bottom: 15px;"><img src="res/firefox_donate.png" /></div>
 				<div style="margin-bottom: 15px; margin-top: 15px; font-size: 10px;">
 					<a href="<?php print_r($donateUrl); ?>">Click here</a> if it does not redirects within 5 seconds.
-				</div>
-				<div style="margin-bottom: 15px; margin-top: 15px; display: none;">
-					Alternatively donate using <a href="<?php printAltUrl(); ?>"><?php printAltName(); ?></a>.
 				</div>
 			</div>
 		</div>
