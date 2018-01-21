@@ -62,13 +62,30 @@
 				<div id="v4.7" class="releaseDiv">
 					<div align="left" class="topic line"><h2>Changes in Version 4.7:</h2></div>
 					<ul align="justify" class="documentContent">
+						<li><b>Common</b>
+							<ul>
+								<li>The <a href="https://github.com/pratikabu/scrolltotop/issues/56">issue 56</a> with Base64 Image has been fixed.</li>
+								<li>Upgraded to latest <a href="https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/">jQuery</a> version.</li>
+							</ul>
+						</li>
+						<li><b>Chrome</b>
+							<ul>
+								<li>Migrated to new chrome.storage API to store settings in cloud.</li>
+								<li>The settings will now be synced across your devices, via <a href="https://support.google.com/chrome/answer/165139">Chrome Sync</a>.</li>
+								<li>Only "Use my icon" setting will be stored locally due to storage API <a href="https://support.google.com/chrome/answer/165139">limitation of size</a>.</li>
+							</ul>
+						</li>
 						<li><b>Firefox</b>
 							<ul>
 								<li>Upgraded the addon to the new supported <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions">WebExtensions</a>.</li>
 								<li>The settings will now be synced across your devices, via <a href="https://www.mozilla.org/en-US/firefox/features/sync/">Firefox Sync</a>.</li>
 								<li>The settings will be reset as the underlying architecture is completely changed in WebExtensions.</li>
-								<li>The <a href="https://github.com/pratikabu/scrolltotop/issues/56">issue 56</a> with Base64 Image has been fixed.</li>
-								<li>Upgraded to latest <a href="https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/">jQuery</a> version.</li>
+							</ul>
+						</li>
+						<li><b>Opera</b>
+							<ul>
+								<li>Migrated to new chrome.storage API.</li>
+								<li>Since cloud storage is not supported on Opera, settings will be stored in local computer only.</li>
 							</ul>
 						</li>
 					</ul>
